@@ -4,7 +4,13 @@
   "description": "a photography portfolio to practice the flexbox ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:sass": "node-sass ./resources/sass/main.scss ./resources/css/style.css -w",
+    "devserver":"live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass ./resources/sass/main.scss  ./resources/css/styles.comp.css",
+    "prefix:css": "postcss --use autoprefixer -o ./resources/css/styles.prefix.css ./resources/css/styles.comp.css",
+    "compress:css": "node-sass ./resources/css/styles.prefix.css ./dist/css/style.min.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/Mattkvls/photography_portfolio/issues"
   },
-  "homepage": "https://github.com/Mattkvls/photography_portfolio#readme"
+  "homepage": "https://github.com/Mattkvls/photography_portfolio#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.5",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0"
+  }
 }
