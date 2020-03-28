@@ -1,7 +1,25 @@
 .container{
-    background-color: red;
-    h1{
-        font-size:20px;
-        color: green;
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-secondary-very-light);
+    box-shadow: var(--shadow-dark);
+
+    //for testing 
+    min-height: 70rem;
+    .content{
+        //make it a flexbox container 
+        display:flex;
+
+        //flex items sidebar/ portfolio
+        .sidebar{
+            background-color: var(--color-primary-very-dark);
+            color: #fff;
+            //define the width for flex-items
+            flex: 0 0 10%;
+        }
+        .portfolio{
+            background-color: orangered;
+            flex: 1;
+        }
     }
 }
