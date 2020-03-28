@@ -1,3 +1,41 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background-image: linear-gradient(to right bottom var(--color-primary), var(--color-primary-very-dark));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: black; }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+:root {
+  --color-primary-light:#a27463;
+  --color-primary:#795548;
+  --color-primary-dark:#64463b;
+  --color-primary-very-dark:#19120f;
+  --color-secondary-dark:#ff3d00;
+  --color-secondary:#FF5722;
+  --color-secondary-light:#ffa488;
+  --color-section-seperation:#fbf9f8;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
 .container {
   background-color: red; }
   .container h1 {
