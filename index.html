@@ -12,11 +12,44 @@
 <body>
     <div class="container">
        <header class="header">
-           header
+           <div class="compass-container">
+                <svg class="compass__icon">
+                    <use xlink:href="/resources/img/SVG/sprite.svg#icon-compass2"></use>
+                </svg>
+           </div>
+           <h1 class="heading__primary">Matt katsivelis Photography</h1>
+            <form action="" class="search">
+                <input type="text" class="search__input" placeholder="search">
+                <button class="search__button">
+                    <!--svg search icon -->
+                    <svg class="search__icon">
+                        <use xlink:href="/resources/img/SVG/sprite.svg#icon-search"></use>
+                    </svg>
+                </button>
+           </form>
        </header>
        <div class="content">
            <nav class="sidebar">
-               sidebar
+               <ul class="side-nav">
+                   <li class="side-nav__item">
+                       <a href="#" class="side-nav__link">
+                           cefalonia
+                       </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            cythera
+                        </a>
+                     </li>
+                     <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            anafi
+                        </a>
+                     </li>
+               </ul>
+               <div class="legal">
+                   &copy;2020 by<a class="legal__link" href="http://mattkatsivelis.com/" target="_blank" >Matt Katsivelis</a>
+               </div>
            </nav>
            <main class="portfolio">
                portfolio

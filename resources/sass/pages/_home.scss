@@ -1,6 +1,6 @@
 .container{
-    max-width: 120rem;
-    margin: 8rem auto;
+    max-width: 140rem;
+    margin: 4rem auto;
     background-color: var(--color-secondary-very-light);
     box-shadow: var(--shadow-dark);
 
@@ -16,10 +16,61 @@
             color: #fff;
             //define the width for flex-items
             flex: 0 0 10%;
-        }
+            font-size: 1.6rem;
+
+            display: flex;
+            flex-direction: column;
+            .side-nav{
+                display: flex;
+                flex-direction: column;
+
+                list-style-type: none;
+                margin: 2rem 0 auto;
+
+                // &__item{
+                //     //li items
+                // }
+
+                &__link{
+                    &:link,
+                    &:visited{
+                        text-transform: uppercase;
+                        display: block;
+                        padding: 2rem;
+                        text-decoration:none;
+                        color: white;
+                        transition: background-color .2s;
+                    }
+                    &:hover,
+                    &:active{
+                        background-color: red;
+                    }
+                }
+            }
+            .legal{
+                //copyright text
+                display: block;
+                padding: 2rem;
+                font-size: 1.3rem;
+                text-align: center;
+                //copyright link
+                &__link{
+                    &:link,
+                    &:visited,
+                    &:active{
+                        display: block;
+                        text-decoration:none;
+                        color: white;
+                        transition: all .2s;
+                    }
+                    &:hover{color:orangered;}
+                }
+            }
+        }//sidebar 
         .portfolio{
             background-color: orangered;
-            flex: 1;
+            flex: 1; // We want it to grow as much as it can
+            height: 80rem; //for testing
         }
     }
 }

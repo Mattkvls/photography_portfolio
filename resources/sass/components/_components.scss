@@ -1,0 +1,47 @@
+//---------------search form--------------------------------
+.search{
+    margin-right: 2rem;
+    flex:0 0 40%;
+
+
+    display: flex;// make the form a flexbox
+    justify-content: center;
+    align-items: center;
+    &__input{
+        font-family: inherit; //inputs do not inherit the global font-family we have to do it manually 
+        font-size:inherit; //is the same thing with the font-size 
+        color: inherit;
+        background-color: var(--color-grey-light-2);
+        border: none;
+        padding: .7rem 2rem;
+        border-radius: 200px;
+        width: 90%;
+        transition: all .2s;
+        margin-right: -3.5rem;
+        &:focus{
+            outline: none; //removes the default blue outline
+            width:100%;
+            background-color: var(--color-grey-light-3);
+        }
+        //style the placeholder of the input 
+        &::-webkit-input-placeholder{
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
+    }
+    &__button{
+        background-color: var(--color-grey-light-2);
+        border: none;
+        &:focus{
+            outline: none;
+        }
+    }
+    &__icon{
+        height: 2rem;
+        width: 2rem;
+        fill: var(--color-grey-dark-3);
+    }
+    &__input:focus + &__button{
+        background-color: var(--color-grey-light-3);
+    }
+}

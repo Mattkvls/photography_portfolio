@@ -4,5 +4,30 @@
         height: 7rem;
         background-color: #fff;
         border-bottom: 2px solid var(--color-grey-light-2);
+        font-size: 1.4rem;
+
+        //flexbox properties
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    .compass-container{
+        display: flex;
+        align-items: center;
+        margin-left: 3rem;
+        margin-right: -23rem;
+        .compass__icon{
+            height: 3.5rem;
+            width: 3.5rem;
+            fill: var(--color-secondary);
+        }
+    }
+        // .heading__primary{
+        //     &--main{
+        //         //styles
+        //     }
+        //     &--sub{
+        //         //styles
+        //     }
+        // }
     }
 }

@@ -4,6 +4,10 @@ body {
   line-height: 1.6;
   color: black; }
 
+.heading__primary {
+  color: var(--color-secondary);
+  text-transform: uppercase; }
+
 *,
 *::before,
 *::after {
@@ -40,14 +44,63 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh; }
 
+.search {
+  margin-right: 2rem;
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 200px;
+    width: 90%;
+    transition: all .2s;
+    margin-right: -3.5rem; }
+    .search__input:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3); }
+    .search__input::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4); }
+  .search__button {
+    background-color: var(--color-grey-light-2);
+    border: none; }
+    .search__button:focus {
+      outline: none; }
+  .search__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3); }
+  .search__input:focus + .search__button {
+    background-color: var(--color-grey-light-3); }
+
 .container .header {
   height: 7rem;
   background-color: #fff;
-  border-bottom: 2px solid var(--color-grey-light-2); }
+  border-bottom: 2px solid var(--color-grey-light-2);
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .container .header .compass-container {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+    margin-right: -23rem; }
+    .container .header .compass-container .compass__icon {
+      height: 3.5rem;
+      width: 3.5rem;
+      fill: var(--color-secondary); }
 
 .container {
-  max-width: 120rem;
-  margin: 8rem auto;
+  max-width: 140rem;
+  margin: 4rem auto;
   background-color: var(--color-secondary-very-light);
   box-shadow: var(--shadow-dark);
   min-height: 70rem; }
@@ -56,7 +109,37 @@ body {
     .container .content .sidebar {
       background-color: var(--color-primary-very-dark);
       color: #fff;
-      flex: 0 0 10%; }
+      flex: 0 0 10%;
+      font-size: 1.6rem;
+      display: flex;
+      flex-direction: column; }
+      .container .content .sidebar .side-nav {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 2rem 0 auto; }
+        .container .content .sidebar .side-nav__link:link, .container .content .sidebar .side-nav__link:visited {
+          text-transform: uppercase;
+          display: block;
+          padding: 2rem;
+          text-decoration: none;
+          color: white;
+          transition: background-color .2s; }
+        .container .content .sidebar .side-nav__link:hover, .container .content .sidebar .side-nav__link:active {
+          background-color: red; }
+      .container .content .sidebar .legal {
+        display: block;
+        padding: 2rem;
+        font-size: 1.3rem;
+        text-align: center; }
+        .container .content .sidebar .legal__link:link, .container .content .sidebar .legal__link:visited, .container .content .sidebar .legal__link:active {
+          display: block;
+          text-decoration: none;
+          color: white;
+          transition: all .2s; }
+        .container .content .sidebar .legal__link:hover {
+          color: orangered; }
     .container .content .portfolio {
       background-color: orangered;
-      flex: 1; }
+      flex: 1;
+      height: 80rem; }
