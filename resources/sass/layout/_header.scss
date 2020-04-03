@@ -6,28 +6,33 @@
         border-bottom: 2px solid var(--color-grey-light-2);
         font-size: 1.4rem;
 
+        //remove the border at tablet size
+        @include respond(tab-land){
+            border-bottom: none;
+        }
+
         //flexbox properties
         display: flex;
         justify-content: space-between;
         align-items: center;
-    .compass-container{
+    .camera-container{
         display: flex;
-        align-items: center;
+        align-items: stretch;
         margin-left: 3rem;
-        margin-right: -23rem;
-        .compass__icon{
-            height: 3.5rem;
-            width: 3.5rem;
+
+        .heading__primary{
+            align-self: center;
+            color: var(--color-secondary);
+            text-transform: uppercase;
+            font-size: 1.8rem;
+        }
+        .camera__icon{
+            align-self: center;
+            height: 5rem;
+            width: 5rem;
             fill: var(--color-secondary);
+            margin-right: 2rem;
         }
     }
-        // .heading__primary{
-        //     &--main{
-        //         //styles
-        //     }
-        //     &--sub{
-        //         //styles
-        //     }
-        // }
     }
 }

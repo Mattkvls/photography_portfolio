@@ -33,6 +33,17 @@
 html{
     box-sizing:border-box;
     font-size:62.5%;
+
+    //here is the place to write the media query for the font-size 
+    @include respond(big-desktop){
+        font-size: 81.25%;
+    }
+    @include respond(tab-land){
+        font-size: 56.25%;
+    }
+    @include respond(tab-port){
+        font-size: 50%;
+    }
 }
 
 body{

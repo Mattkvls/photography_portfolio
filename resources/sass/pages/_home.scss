@@ -1,14 +1,28 @@
 .container{
-    max-width: 140rem;
-    margin: 4rem auto;
+    max-width: 130rem;
+    margin: 6rem auto;
     background-color: var(--color-secondary-very-light);
     box-shadow: var(--shadow-dark);
 
+    @include respond(tab-land){
+        margin: 0;
+        // max-width: 140rem;
+        //we increase the side to cover the brown background 
+        max-width: 100%;
+        width: 100%;
+    }
+
     //for testing 
     min-height: 70rem;
+
     .content{
         //make it a flexbox container 
         display:flex;
+
+        //move the side-bar to the top
+        @include respond(tab-land){
+            flex-direction: column;
+        }
 
         //flex items sidebar/ portfolio
         .sidebar{
@@ -16,34 +30,73 @@
             color: #fff;
             //define the width for flex-items
             flex: 0 0 10%;
-            font-size: 1.6rem;
 
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+
+            //the ul side-nav
             .side-nav{
-                display: flex;
-                flex-direction: column;
-
+                font-size: 1.3rem;
                 list-style-type: none;
-                margin: 2rem 0 auto;
+                margin-top: 3.5rem;
 
-                // &__item{
-                //     //li items
-                // }
+                @include respond(tab-land){
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top:0;
+                }
+                //li items
+                &__item{
+                    position:relative;
+                    &:not(:last-child){
+                        margin-bottom: .5rem;
+                    }
+
+                    @include respond(tab-land){
+                        //make each li 1/3 of the bar 
+                        flex:1;
+
+                        //make the text centered 
+                        display: flex;
+                        justify-content: center;
+                        &:not(:last-child){
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                &__item::before{
+                    content:"";
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    height: 100%;
+                    width: 3px;
+                    background-color: var(--color-secondary);
+                    transform: scaleY(0);
+                    transform-origin: center;
+                    transition: transform .2s,
+                                width .4s cubic-bezier(1,0,0,1) .2s; //the second number is the delay
+                }
+
+                &__item:hover::before{
+                    transform: scaleY(1);
+                    width: 100%;
+                }
 
                 &__link{
                     &:link,
-                    &:visited{
+                    &:visited,
+                    &hover,
+                    &active{
+                        text-decoration: none;
                         text-transform: uppercase;
                         display: block;
-                        padding: 2rem;
-                        text-decoration:none;
+                        padding: 1.5rem 3rem;
                         color: white;
-                        transition: background-color .2s;
-                    }
-                    &:hover,
-                    &:active{
-                        background-color: red;
+                        position: relative;
+                        z-index: 1000;
                     }
                 }
             }
@@ -53,6 +106,10 @@
                 padding: 2rem;
                 font-size: 1.3rem;
                 text-align: center;
+
+                @include respond(tab-land){
+                    display: none;
+                }
                 //copyright link
                 &__link{
                     &:link,
@@ -68,9 +125,37 @@
             }
         }//sidebar 
         .portfolio{
-            background-color: orangered;
-            flex: 1; // We want it to grow as much as it can
-            height: 80rem; //for testing
+            //portfolio is a flex-item
+            flex: 1; // We want it to grow as much as it can since it's a flex-item we use the flex-grow
+
+            //we make the portfolio a flexbox to align the figoures inside it
+            display: flex;
+            flex-wrap: wrap;
+
+            .figure{
+                flex: 0 0 30%;
+                padding: 2rem;
+                margin: 1rem auto;
+        
+                &__img{
+                    width: 100%;
+                    height: 100%;
+                    transition: all ease-in .1s;
+                }
+                &__caption{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    font-size: 1.5rem;
+                    .location-icon{
+                        height: 1.5rem;
+                        width: 1.5rem;
+                        fill: var(--color-secondary);
+                        margin-right: 1rem;
+                    }
+                }
+
+            } 
         }
     }
 }

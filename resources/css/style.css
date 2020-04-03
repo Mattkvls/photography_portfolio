@@ -4,10 +4,6 @@ body {
   line-height: 1.6;
   color: black; }
 
-.heading__primary {
-  color: var(--color-secondary);
-  text-transform: uppercase; }
-
 *,
 *::before,
 *::after {
@@ -37,6 +33,15 @@ body {
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 81.25%; } }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
 
 body {
   background-image: linear-gradient(to right bottom, var(--color-primary), var(--color-primary-very-dark));
@@ -88,50 +93,99 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  .container .header .compass-container {
+  @media only screen and (max-width: 75em) {
+    .container .header {
+      border-bottom: none; } }
+  .container .header .camera-container {
     display: flex;
-    align-items: center;
-    margin-left: 3rem;
-    margin-right: -23rem; }
-    .container .header .compass-container .compass__icon {
-      height: 3.5rem;
-      width: 3.5rem;
-      fill: var(--color-secondary); }
+    align-items: stretch;
+    margin-left: 3rem; }
+    .container .header .camera-container .heading__primary {
+      align-self: center;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      font-size: 1.8rem; }
+    .container .header .camera-container .camera__icon {
+      align-self: center;
+      height: 5rem;
+      width: 5rem;
+      fill: var(--color-secondary);
+      margin-right: 2rem; }
 
 .container {
-  max-width: 140rem;
-  margin: 4rem auto;
+  max-width: 130rem;
+  margin: 6rem auto;
   background-color: var(--color-secondary-very-light);
   box-shadow: var(--shadow-dark);
   min-height: 70rem; }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      max-width: 100%;
+      width: 100%; } }
   .container .content {
     display: flex; }
+    @media only screen and (max-width: 75em) {
+      .container .content {
+        flex-direction: column; } }
     .container .content .sidebar {
       background-color: var(--color-primary-very-dark);
       color: #fff;
       flex: 0 0 10%;
-      font-size: 1.6rem;
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      justify-content: space-between; }
       .container .content .sidebar .side-nav {
-        display: flex;
-        flex-direction: column;
+        font-size: 1.3rem;
         list-style-type: none;
-        margin: 2rem 0 auto; }
-        .container .content .sidebar .side-nav__link:link, .container .content .sidebar .side-nav__link:visited {
+        margin-top: 3.5rem; }
+        @media only screen and (max-width: 75em) {
+          .container .content .sidebar .side-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0; } }
+        .container .content .sidebar .side-nav__item {
+          position: relative; }
+          .container .content .sidebar .side-nav__item:not(:last-child) {
+            margin-bottom: .5rem; }
+          @media only screen and (max-width: 75em) {
+            .container .content .sidebar .side-nav__item {
+              flex: 1;
+              display: flex;
+              justify-content: center; }
+              .container .content .sidebar .side-nav__item:not(:last-child) {
+                margin-bottom: 0; } }
+        .container .content .sidebar .side-nav__item::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 3px;
+          background-color: var(--color-secondary);
+          transform: scaleY(0);
+          transform-origin: center;
+          transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s; }
+        .container .content .sidebar .side-nav__item:hover::before {
+          transform: scaleY(1);
+          width: 100%; }
+        .container .content .sidebar .side-nav__link:link, .container .content .sidebar .side-nav__link:visited, .container .content .sidebar .side-nav__linkhover, .container .content .sidebar .side-nav__linkactive {
+          text-decoration: none;
           text-transform: uppercase;
           display: block;
-          padding: 2rem;
-          text-decoration: none;
+          padding: 1.5rem 3rem;
           color: white;
-          transition: background-color .2s; }
-        .container .content .sidebar .side-nav__link:hover, .container .content .sidebar .side-nav__link:active {
-          background-color: red; }
+          position: relative;
+          z-index: 1000; }
       .container .content .sidebar .legal {
         display: block;
         padding: 2rem;
         font-size: 1.3rem;
         text-align: center; }
+        @media only screen and (max-width: 75em) {
+          .container .content .sidebar .legal {
+            display: none; } }
         .container .content .sidebar .legal__link:link, .container .content .sidebar .legal__link:visited, .container .content .sidebar .legal__link:active {
           display: block;
           text-decoration: none;
@@ -140,6 +194,24 @@ body {
         .container .content .sidebar .legal__link:hover {
           color: orangered; }
     .container .content .portfolio {
-      background-color: orangered;
       flex: 1;
-      height: 80rem; }
+      display: flex;
+      flex-wrap: wrap; }
+      .container .content .portfolio .figure {
+        flex: 0 0 30%;
+        padding: 2rem;
+        margin: 1rem auto; }
+        .container .content .portfolio .figure__img {
+          width: 100%;
+          height: 100%;
+          transition: all ease-in .1s; }
+        .container .content .portfolio .figure__caption {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          font-size: 1.5rem; }
+          .container .content .portfolio .figure__caption .location-icon {
+            height: 1.5rem;
+            width: 1.5rem;
+            fill: var(--color-secondary);
+            margin-right: 1rem; }
